@@ -1,14 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Tareas
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="agregarTarea()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-list>
+  <ion-item-sliding *ngFor="let tarea of tareas;let indice= index">
+    <ion-item>{{tarea}}</ion-item>
+    <ion-item-options side="right">
+      <button color="danger" ion-button (click)="archivarTarea(indice)">
+        <ion-icon name="trash" ></ion-icon>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<ion-fab right bottom>
+  <button ion-fab (click)="irPaginaArchivadas()">
+    <ion-icon name="albums"></ion-icon>
+  </button>
+</ion-fab>
 </ion-content>
