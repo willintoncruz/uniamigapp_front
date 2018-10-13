@@ -16,7 +16,9 @@ export class TareaProvider {
   agregarTarea(tarea){
     this.tareas.push(tarea)
   }
-  editarTarea(tarea, index){}
+  editarTarea(tarea, index){
+    this.tareas[index] = tarea;
+  }
   archivarTarea(index){
     this.tareasArchivadas.push(this.tareas[index])
     this.tareas.splice(index,1);

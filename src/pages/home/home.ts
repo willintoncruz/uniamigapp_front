@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, reorderArray, ToastController } from 'ionic-angular';
 import { TareaProvider } from '../../providers/tarea/tarea';
 import { TareasArchivadasPage } from '../tareas-archivadas/tareas-archivadas';
 @Component({
@@ -8,10 +8,12 @@ import { TareasArchivadasPage } from '../tareas-archivadas/tareas-archivadas';
 })
 export class HomePage {
   tareas = []
+  habilitar = false
   constructor(
     public navCtrl: NavController,
     public alerta: AlertController,
-    private servicioTareas: TareaProvider
+    private servicioTareas: TareaProvider,
+    private toast: ToastController
     ) {
    this.tareas = servicioTareas.obtenerTareas();
   }
@@ -41,6 +43,33 @@ export class HomePage {
   }
   archivarTarea(indice){
     this.servicioTareas.archivarTarea(indice)
+  }
+  editarTarea(indice){
+    let alert = this.alerta.create({
+      title: "Editar tarea",
+      inputs: [{
+        type: "text",
+        name: "textoTarea",
+        value: this.tareas[indice]
+      }],
+      buttons: [{
+        text: "Guardar",
+        handler: (datos) => {
+          this.servicioTareas.editarTarea(datos.textoTarea, indice);
+          let toast = this.toast.create({
+            message: "Tarea editada exitosamente",
+            duration: 2000
+          });
+          toast.present();
+        }
+      }]
+    });
+    alert.present();
+  }
+
+  ordenarTareas(evento){
+    console.log(evento);
+    reorderArray(this.tareas, evento);
   }
 
 }
