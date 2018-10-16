@@ -5,8 +5,8 @@
     </ion-title>
     <ion-buttons end>
 
-      <button *ngIf="!habilitar">Editar</button>
-      <button *ngIf="habilitar">Listo</button>
+      <button *ngIf="!habilitar" ion-button (click)="toogleHabilitar()">Editar</button>
+      <button *ngIf="habilitar" ion-button (click)="toogleHabilitar()">Listo</button>
 
       <button ion-button (click)="agregarTarea()">
         <ion-icon name="add"></ion-icon>

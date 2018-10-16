@@ -71,5 +71,7 @@ export class HomePage {
     console.log(evento);
     reorderArray(this.tareas, evento);
   }
-
+  toogleHabilitar(){
+    this.habilitar = !this.habilitar;
+  }
 }
