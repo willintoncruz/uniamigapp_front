@@ -4,7 +4,7 @@
       Tareas
     </ion-title>
     <ion-buttons end>
-
+      <button ion-button (click)="cerrarSesion()">Cerrar Sesion</button>
       <button *ngIf="!habilitar" ion-button (click)="toogleHabilitar()">Editar</button>
       <button *ngIf="habilitar" ion-button (click)="toogleHabilitar()">Listo</button>
 
@@ -18,14 +18,14 @@
 <ion-content padding>
 <ion-list [reorder]="habilitar" (ionItemReorder)="ordenarTareas($event)">
   <ion-item-sliding *ngFor="let tarea of tareas;let indice= index">
-    <ion-item>{{tarea}}</ion-item>
+    <ion-item>{{tarea.titulo}}</ion-item>
     <ion-item-options side="right">
-      <button color="danger" ion-button (click)="archivarTarea(indice)">
+      <button color="danger" ion-button (click)="archivarTarea(indice,tarea.id)">
         <ion-icon name="trash" ></ion-icon>
       </button>
     </ion-item-options>
     <ion-item-options side="left">
-      <button color="danger" ion-button (click)="editarTarea(indice)">
+      <button color="danger" ion-button (click)="editarTarea(tarea, indice)">
         <ion-icon name="create" ></ion-icon>
       </button>
     </ion-item-options>
