@@ -10,7 +10,8 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
   tareas = []
-  habilitar = false
+  habilitar = false  
+
   constructor(
     public navCtrl: NavController,
     public alerta: AlertController,
@@ -114,6 +115,7 @@ export class HomePage {
   cerrarSesion(){
     localStorage.removeItem("id");
     localStorage.removeItem("jwt");
+    localStorage.removeItem("personaLE");
     this.navCtrl.setRoot(LoginPage)
     }
 }

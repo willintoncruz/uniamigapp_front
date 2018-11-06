@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-title>
+            Datos de Usuario
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="cerrarSesion()">
+                <ion-icon name="log-out"></ion-icon>
+              </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background-color: gainsboro">
+    <div class="splash-bg"></div>
+    <div class="splash-logo"></div>
+
+    <ion-list style="padding-top: 10px">
+        <ion-item>
+            <ion-label>Nombres:</ion-label>
+            <ion-input [(ngModel)]="persona.nombres" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Apellidos:</ion-label>
+            <ion-input [(ngModel)]="persona.apellidos" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo Documento:</ion-label>
+            <ion-select [(ngModel)]="persona.tipo_documento" required>
+                <ion-option value="Cédula de Ciudadania">Cédula de Ciudadania</ion-option>
+                <ion-option value="Tarjeta de Identidad">Tarjeta de Identidad</ion-option>
+                <ion-option value="Pasaporte">Pasaporte</ion-option>
+                <ion-option value="Cédula de Extranjeria">Cédula de Extranjeria</ion-option>
+                <ion-option value="Otro">Otro</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Número de Documento:</ion-label>
+            <ion-input [(ngModel)]="persona.num_documento" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo de Persona:</ion-label>
+            <ion-select [(ngModel)]="persona.tipo_persona" required>
+                <ion-option value="Estudiante">Estudiante</ion-option>
+                <ion-option value="Beneficiario">Beneficiario</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Teléfono:</ion-label>
+            <ion-input [(ngModel)]="persona.telefono" type="tel" required></ion-input>
+        </ion-item>
+        <!-- <button ion-button (click)="registrar()">Registrar</button> -->
+        <div padding>
+            <button ion-button color="primary" (click)="registrar()" block class="regi">Registrar</button>
+        </div>
+
+    </ion-list>
+</ion-content>

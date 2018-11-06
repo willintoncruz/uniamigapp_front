@@ -1,39 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Tareas
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="cerrarSesion()">Cerrar Sesion</button>
-      <button *ngIf="!habilitar" ion-button (click)="toogleHabilitar()">Editar</button>
-      <button *ngIf="habilitar" ion-button (click)="toogleHabilitar()">Listo</button>
+    <ion-navbar>
+        <ion-title>
+            Tareas
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="cerrarSesion()">Cerrar Sesion</button>
+            <button *ngIf="!habilitar" ion-button (click)="toogleHabilitar()">Editar</button>
+            <button *ngIf="habilitar" ion-button (click)="toogleHabilitar()">Listo</button>
 
-      <button ion-button (click)="agregarTarea()">
+            <button ion-button (click)="agregarTarea()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-list [reorder]="habilitar" (ionItemReorder)="ordenarTareas($event)">
-  <ion-item-sliding *ngFor="let tarea of tareas;let indice= index">
-    <ion-item>{{tarea.titulo}}</ion-item>
-    <ion-item-options side="right">
-      <button color="danger" ion-button (click)="archivarTarea(indice,tarea.id)">
+    <ion-list [reorder]="habilitar" (ionItemReorder)="ordenarTareas($event)">
+        <ion-item-sliding *ngFor="let tarea of tareas;let indice= index">
+            <ion-item>{{tarea.titulo}}</ion-item>
+            <ion-item-options side="right">
+                <button color="danger" ion-button (click)="archivarTarea(indice,tarea.id)">
         <ion-icon name="trash" ></ion-icon>
       </button>
-    </ion-item-options>
-    <ion-item-options side="left">
-      <button color="danger" ion-button (click)="editarTarea(tarea, indice)">
+            </ion-item-options>
+            <ion-item-options side="left">
+                <button color="danger" ion-button (click)="editarTarea(tarea, indice)">
         <ion-icon name="create" ></ion-icon>
       </button>
-    </ion-item-options>
-  </ion-item-sliding>
-</ion-list>
-<ion-fab right bottom>
-  <button ion-fab (click)="irPaginaArchivadas()">
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-fab right bottom>
+        <button ion-fab (click)="irPaginaArchivadas()">
     <ion-icon name="albums"></ion-icon>
   </button>
-</ion-fab>
+    </ion-fab>
 </ion-content>

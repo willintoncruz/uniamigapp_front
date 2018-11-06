@@ -14,6 +14,11 @@ import { PruebaPage } from '../pages/prueba/prueba';
 import { AuthProvider } from '../providers/auth/auth';
 import { LoginPage } from '../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
+import { WelcomePage } from '../pages/welcome/welcome';
+import { PersonaPage } from '../pages/persona/persona';
+import { PersonaHttpProvider } from '../providers/persona-http/persona-http';
+import { ActividadPage } from '../pages/actividad/actividad';
+import { ActividadHttpProvider } from '../providers/actividad-http/actividad-http';
 
 
 
@@ -24,7 +29,10 @@ import { RegistroPage } from '../pages/registro/registro';
     PruebaPage,
     TareasArchivadasPage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    WelcomePage,
+    ActividadPage,
+    PersonaPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,10 @@ import { RegistroPage } from '../pages/registro/registro';
     PruebaPage,
     TareasArchivadasPage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    WelcomePage,
+    ActividadPage,
+    PersonaPage
   ],
   providers: [
     StatusBar,
@@ -46,7 +57,9 @@ import { RegistroPage } from '../pages/registro/registro';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TareaProvider,
     TareaHttpProvider,
-    AuthProvider
+    AuthProvider,
+    PersonaHttpProvider,
+    ActividadHttpProvider
   ]
 })
 export class AppModule {}

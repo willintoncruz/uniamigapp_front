@@ -1,0 +1,22 @@
+<ion-content scroll="false" style="background-color: gainsboro">
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+        <div class="splash-logo"></div>
+        <div class="splash-intro">
+            UNIAMIGAPP
+        </div>
+    </div>
+    <div padding>
+        <ion-item>
+            <ion-label>Email:</ion-label>
+            <ion-input [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Password:</ion-label>
+            <ion-input [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+        <button ion-button block class="regi" (click)="iniciarSes()">Iniciar Sesión</button>
+        <button ion-button block (click)="registrar()" class="login">Registrarse</button>
+
+    </div>
+</ion-content>
