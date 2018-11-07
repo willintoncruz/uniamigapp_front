@@ -1,0 +1,25 @@
+
+  <ion-header>
+      <ion-navbar>
+          <ion-title>
+              Detalle Actividad
+          </ion-title>
+          <ion-buttons end>          
+              <button ion-button (click)="cerrarSesion()">
+                  <ion-icon name="log-out"></ion-icon>
+                </button>              
+          </ion-buttons>
+      </ion-navbar>
+    </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-list>
+        <ion-item-sliding>
+            <ion-item>Nombre: {{actividadBus.nombre}}</ion-item>
+            <ion-item>Descripción: {{actividadBus.descripcion}}</ion-item>           
+        </ion-item-sliding>
+        <button ion-button block  (click)="asociarActividad()">Asociar</button>
+    </ion-list>
+    
+  </ion-content>

@@ -49,4 +49,16 @@ export class ActividadHttpProvider {
     )
   }
 
+  buscarActividades(descripcion){
+    let jwt = localStorage.getItem('jwt');
+    let id = localStorage.getItem('id');    
+    this.headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwt
+    })
+
+    return this.http.get(this.url+'/actividads?descripcion='+descripcion,{
+      headers: this.headers
+    })   
+  }
+
 }

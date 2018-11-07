@@ -19,6 +19,10 @@ import { PersonaPage } from '../pages/persona/persona';
 import { PersonaHttpProvider } from '../providers/persona-http/persona-http';
 import { ActividadPage } from '../pages/actividad/actividad';
 import { ActividadHttpProvider } from '../providers/actividad-http/actividad-http';
+import { ActividadPersonaPage } from '../pages/actividad-persona/actividad-persona';
+import { ActividadPersonaHttpProvider } from '../providers/actividad-persona-http/actividad-persona-http';
+import { BuscarActividadPage } from '../pages/buscar-actividad/buscar-actividad';
+import { DetalleActividadPage } from '../pages/detalle-actividad/detalle-actividad';
 
 
 
@@ -32,7 +36,10 @@ import { ActividadHttpProvider } from '../providers/actividad-http/actividad-htt
     RegistroPage,
     WelcomePage,
     ActividadPage,
-    PersonaPage
+    PersonaPage,
+    ActividadPersonaPage,
+    BuscarActividadPage,
+    DetalleActividadPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,10 @@ import { ActividadHttpProvider } from '../providers/actividad-http/actividad-htt
     RegistroPage,
     WelcomePage,
     ActividadPage,
-    PersonaPage
+    PersonaPage,
+    ActividadPersonaPage,
+    BuscarActividadPage,
+    DetalleActividadPage
   ],
   providers: [
     StatusBar,
@@ -59,7 +69,8 @@ import { ActividadHttpProvider } from '../providers/actividad-http/actividad-htt
     TareaHttpProvider,
     AuthProvider,
     PersonaHttpProvider,
-    ActividadHttpProvider
+    ActividadHttpProvider,
+    ActividadPersonaHttpProvider
   ]
 })
 export class AppModule {}

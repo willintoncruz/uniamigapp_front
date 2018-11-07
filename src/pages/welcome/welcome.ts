@@ -5,6 +5,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { ActividadPage } from '../actividad/actividad';
 import { PersonaHttpProvider } from '../../providers/persona-http/persona-http';
 import { PersonaPage } from '../persona/persona';
+import { ActividadPersonaPage } from '../actividad-persona/actividad-persona';
 
 /**
  * Generated class for the WelcomePage page.
@@ -52,12 +53,14 @@ export class WelcomePage {
           this.personaHttp.consultar(dato.id).subscribe(
             (dato2:any)=>{
               console.log("dato2.id :: "+dato2.id); 
-              localStorage.setItem("personaLE",JSON.stringify(dato2))   
+              localStorage.setItem("personaLE",JSON.stringify(dato2)) 
+              console.log("tipo_persona::::" + dato2.tipo_persona);
+                
               if(dato2.id){
                 if(dato2.tipo_persona == 'Beneficiario'){
                   this.navCtrl.push(ActividadPage)
                 }else{
-
+                  this.navCtrl.push(ActividadPersonaPage)
                 }
               }else{//si no existe como persona
                 this.navCtrl.push(PersonaPage)  

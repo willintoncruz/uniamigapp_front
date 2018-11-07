@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+          Buscar Actividades
+      </ion-title>
+      <ion-buttons end>          
+          <button ion-button (click)="cerrarSesion()">
+              <ion-icon name="log-out"></ion-icon>
+            </button>
+          <button ion-button (click)="agregarActivdad()">
+                  <ion-icon name="add"></ion-icon>
+                </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+        <ion-searchbar placeholder="Digite un criterio" [(ngModel)]="actividad.descripcion"></ion-searchbar>
+        <button ion-button block  (click)="buscarActi()">Buscar</button>
+  <ion-list>
+      <ion-item-sliding *ngFor="let actividadBus of actividades;let indice= index">
+          <ion-item>{{actividadBus.nombre}}</ion-item>
+          <ion-item-options side="left">
+              <button color="danger" ion-button (click)="detalleActividad(actividadBus, indice)">
+          <ion-icon name="eye" ></ion-icon>
+        </button>
+          </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
