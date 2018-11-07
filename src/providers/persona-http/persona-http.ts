@@ -38,4 +38,18 @@ export class PersonaHttpProvider {
     )
   }
 
+  consultar(idusuario){
+console.log("idusuario::" + idusuario);
+
+    let jwt = localStorage.getItem('jwt');
+    let id = localStorage.getItem('id');
+    this.headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwt
+    })
+    return this.http.get(this.url+'personas/'+id, {      
+      headers: this.headers
+    }
+    )
+  }
+
 }

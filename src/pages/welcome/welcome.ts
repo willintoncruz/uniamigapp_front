@@ -3,6 +3,8 @@ import { NavController, NavParams,ToastController } from 'ionic-angular';
 import { RegistroPage } from '../registro/registro';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ActividadPage } from '../actividad/actividad';
+import { PersonaHttpProvider } from '../../providers/persona-http/persona-http';
+import { PersonaPage } from '../persona/persona';
 
 /**
  * Generated class for the WelcomePage page.
@@ -22,7 +24,8 @@ export class WelcomePage {
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private toast: ToastController,
-    private auth:AuthProvider) {
+    private auth:AuthProvider,
+    private personaHttp: PersonaHttpProvider) {
   }
 
   ionViewDidLoad() {
@@ -43,8 +46,26 @@ export class WelcomePage {
         (dato:any)=>{
           console.log(dato.jwt);   
           localStorage.setItem('jwt',dato.jwt)     
-          localStorage.setItem('id',dato.id)     
-          this.navCtrl.push(ActividadPage)
+          localStorage.setItem('id',dato.id)   
+          
+          //consultar el id de la persona
+          this.personaHttp.consultar(dato.id).subscribe(
+            (dato2:any)=>{
+              console.log("dato2.id :: "+dato2.id); 
+              localStorage.setItem("personaLE",JSON.stringify(dato2))   
+              if(dato2.id){
+                if(dato2.tipo_persona == 'Beneficiario'){
+                  this.navCtrl.push(ActividadPage)
+                }else{
+
+                }
+              }else{//si no existe como persona
+                this.navCtrl.push(PersonaPage)  
+              }             
+
+            }
+          );
+          // this.navCtrl.push(ActividadPage)
         }
       );
     }else{

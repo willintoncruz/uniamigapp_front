@@ -39,9 +39,9 @@ if(!re.test(this.usuario.email)) {
     duration: 2000
   });
   toast.present();
-}else if(this.usuario.password.length!=3) {
+}else if(this.usuario.password.length!=6) {
   let toast = this.toast.create({
-    message: "El campo password debe ser de 8 carácteres",
+    message: "El campo password debe ser de 6 carácteres",
     duration: 2000
   });
   toast.present();
